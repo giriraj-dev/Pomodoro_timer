@@ -6,19 +6,31 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+    <audio id="sound">
+        <source src="/alarm-1.mp3" type="audio/mpeg">
+    </audio>
     <div>SET TIMER :-</div>
     <input id="settime" type="time" step="1"/>
-    <button class="refresh">Reset</button>
-    <div class="message"></div>
+    <!-- <div id="timer" type="text"></div> -->
+<br>
 <br>
     <div>SET BREAK :-</div>
     <input id="setbreak" type="time" step="1"/>
-    <button class="again">Reset</button>
-    <br>
-    <br>
+    <!-- <div id="timer" type="text"></div> -->
+<br>
+<br>
     <button class="start">START</button>
-    <div class="mes"></div>
+    <button class="refresh">RESET</button>
+    <button class="wait">PAUSE</button>
+<br>
+<br>
+    <div class="message"></div>
+    <div class="breakMess"></div>
+    <div class="repeat"></div>
+    <div class="done"></div>
 
 
     <!-- <button class="hours">hours</button>
