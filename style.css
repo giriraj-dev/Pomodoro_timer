@@ -8,16 +8,25 @@
     font-family: Arial, sans-serif;
 }
 
+body{
+    background-color: #ebebeb;
+}
+
 ul { 
     margin-top: 15px;
     padding-left: 40px; 
 }
 
-p, ul li{
+p, ul li{ 
     font-family: "Dosis", sans-serif;
     font-size: larger;
     font-style: normal;
 }
+
+p{
+    padding-left: 40px; 
+}
+
 span{
         font-family: "Nerko One", cursive;
         font-weight: 400;
@@ -34,7 +43,6 @@ h1{
 }
 
 .time {
-    background-color: #faf7f7;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,9 +51,9 @@ h1{
 }
 
 #timer {
-    background-color: #302f2f;
+    background-color: #333333;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(252, 250, 250, 0.1);
+    box-shadow: 10px 10px 19px rgba(161, 85, 85, 0.4);
     padding: 20px;
     max-width: 400px;
     width: 100%;
@@ -58,6 +66,7 @@ h1{
     margin-bottom: 10px;
     font-weight: lighter;
     border-top: rgb(36, 32, 32) solid 1px ;
+    border-bottom: rgb(36, 32, 32) solid 1px ;
     color:#fff;
 }
 
@@ -67,6 +76,7 @@ h1{
     margin-bottom: 10px;
     margin-top: 10px;
     border-top: rgb(36, 32, 32) solid 1px ;
+    border-bottom: rgb(36, 32, 32) solid 1px ;
     font-weight:lighter;
     color: #fff;
 }
@@ -113,11 +123,29 @@ button.minus, button.add {
 }
 
 .message, .breakMess, .repeat, .done {
+    font-family: "Nerko One", cursive;
+    text-align: center;
     margin-top: 20px;
-    font-size: 1.2em;
-    color: #fff;
+    font-size: 1.7em;
+    color:black;
 }
 
+.footer{
+    margin-top:-150px
+}
 audio {
     display: none;
+}
+
+
+@media screen and (min-width: 1100px){
+
+    .discription , p{
+        text-align: center;
+    }
+
+    ul{
+        display: inline-block;
+        text-align: left;
+    }
 }
