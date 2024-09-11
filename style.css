@@ -1,6 +1,5 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Nerko+One&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Nerko+One&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Mingzat&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -8,46 +7,74 @@
     font-family: Arial, sans-serif;
 }
 
-body{
-    background-color: #ebebeb;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    padding: 0;
+    margin: 0;
+}
+.parent-container {
+    min-height: 100vh;
+    padding: 2rem;
 }
 
-ul { 
+.discription {
+    /* padding: 2rem; */
+    margin-bottom: 2rem;
+}
+
+body {
+    background-color: #f1f0f0;
+}
+
+/* .footer-sub-container {
+    height: 50px; 
+} */
+
+ul {
     margin-top: 15px;
-    padding-left: 40px; 
+    padding-left: 40px;
 }
 
-p, ul li{ 
+p,
+ul li {
     font-family: "Dosis", sans-serif;
     font-size: larger;
     font-style: normal;
 }
 
-p{
-    padding-left: 40px; 
+p {
+    padding-left: 40px;
 }
 
-span{
-        font-family: "Nerko One", cursive;
-        font-weight: 400;
-        font-style: normal;
+span {
+    font-family: "Nerko One", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
-h1{
-        font-family: "Nerko One", cursive;
-        font-size:50px;
-        text-align: center;
+h1 {
+    font-family: "Nerko One", cursive;
+    font-size: 4rem;
+    text-align: center;
 }
 
-.head{
+.head {
     color: red;
+}
+
+.save div{
+    font-family: "Mingzat", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .time {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin-top: -100px;
 }
 
 #timer {
@@ -65,9 +92,9 @@ h1{
     font-size: 1.5em;
     margin-bottom: 10px;
     font-weight: lighter;
-    border-top: rgb(36, 32, 32) solid 1px ;
-    border-bottom: rgb(36, 32, 32) solid 1px ;
-    color:#fff;
+    border-top: rgb(36, 32, 32) solid 1px;
+    border-bottom: rgb(36, 32, 32) solid 1px;
+    color: #fff;
 }
 
 .heading-2 {
@@ -75,12 +102,11 @@ h1{
     font-size: 1.5em;
     margin-bottom: 10px;
     margin-top: 10px;
-    border-top: rgb(36, 32, 32) solid 1px ;
-    border-bottom: rgb(36, 32, 32) solid 1px ;
-    font-weight:lighter;
+    border-top: rgb(36, 32, 32) solid 1px;
+    border-bottom: rgb(36, 32, 32) solid 1px;
+    font-weight: lighter;
     color: #fff;
 }
-
 
 input[type="time"] {
     font-size: 1.2em;
@@ -95,7 +121,7 @@ input[type="time"] {
 button {
     font-family: "Nerko One", cursive;
     background-color: #302f2f;
-    border: rgb(36, 32, 32) solid 1px ;
+    border: rgb(36, 32, 32) solid 1px;
     color: white;
     border-radius: 5px;
     padding: 10px 15px;
@@ -108,7 +134,8 @@ button:hover {
     background-color: #0056b3;
 }
 
-button.minus, button.add {
+button.minus,
+button.add {
     font-size: 1.2em;
     width: 40px;
     height: 40px;
@@ -122,30 +149,29 @@ button.minus, button.add {
     margin: 0 10px;
 }
 
-.message, .breakMess, .repeat, .done {
+.message,
+.breakMess,
+.repeat,
+.done {
     font-family: "Nerko One", cursive;
     text-align: center;
     margin-top: 20px;
     font-size: 1.7em;
-    color:black;
+    color: black;
 }
 
-.footer{
-    margin-top:-150px
-}
 audio {
     display: none;
 }
 
-
-@media screen and (min-width: 1100px){
-
-    .discription , p{
-        text-align: center;
+@media screen and (min-width: 1100px) {
+    .discription,
+    p {
+    text-align: center;
     }
 
-    ul{
-        display: inline-block;
-        text-align: left;
+    ul {
+    display: inline-block;
+    text-align: left;
     }
 }
