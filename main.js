@@ -1,9 +1,9 @@
 // Set initial values for work and break sessions
 let set_time = document.getElementById("settime");
-set_time.value = "00:00:05"; // Default timer value
+set_time.value = "00:00:30"; // Default timer value
 
 let set_break = document.getElementById("setbreak");
-set_break.value = "00:00:10"; // Default break value
+set_break.value = "00:00:30"; // Default break value
 
 // Convert time from HH:MM:SS format to milliseconds
 const timeToMilliseconds = (time) => {
@@ -30,12 +30,11 @@ const secondsToTime = (totalSeconds) => {
 
 // Initialize variables for timer and cycles
 let timeoutId, timerInterval;
-let cycles = 4,
-  currentCycle = 0;
+let cycles = 4, currentCycle = 0;
 let remainingTime,
-  isPaused = false,
-  isInBreak = false,
-  remainingTimeout;
+isPaused = false,
+isInBreak = false,
+remainingTimeout;
 
 // Get references to DOM elements
 let reset = document.getElementsByClassName("refresh")[0];
@@ -45,7 +44,8 @@ let info = document.getElementsByClassName("breakMess")[0];
 let pause = document.getElementsByClassName("wait")[0];
 let done = document.getElementsByClassName("done")[0];
 let again = document.getElementsByClassName("repeat")[0];
-let alarmSound = document.getElementById("sound");
+let alarmSound = document.getElementById("sound1");
+let alarmSound2 = document.getElementById("sound5");
 let increment = document.getElementsByClassName("add");
 let decrement = document.getElementsByClassName("minus");
 let store = document.getElementsByClassName("save")[0];
@@ -73,33 +73,35 @@ function updateCountdown(timeInSeconds) {
   remainingTime = timeInSeconds;
   clearInterval(timerInterval);
   timerInterval = setInterval(() => {
-    if (remainingTime > 0) {
+    if (remainingTime >1) {
+      set_break.value = "00:00:30"
       remainingTime--;
       set_time.value = secondsToTime(remainingTime); // Update timer display
     } else {
       clearInterval(timerInterval);
-      //startBreakCountdown(); // Start the break when time reaches 0
+      startBreakCountdown(); // Start the break when time reaches 0
     }
   }, 1000);
 }
 
-// /* Function to update countdown for the break session */
-// function startBreakCountdown() {
-//   isInBreak = true;
-//   let breakTimeInSeconds = timeToSecond(set_break.value);
-//   clearInterval(timerInterval);
-//   timerInterval = setInterval(() => {
-//     if (breakTimeInSeconds > 0) {
-//       breakTimeInSeconds--;
-//       set_break.value = secondsToTime(breakTimeInSeconds); // Update break display
-//     } else {
-//       clearInterval(timerInterval);
-//       //set_time.value = "00:01:00"; // Reset for next cycle
-//       isInBreak = false;
-//       startTimer(); // Start the next cycle
-//     }
-//   }, 1000);
-// }
+/* Function to update countdown for the break session */
+function startBreakCountdown() {
+  //isInBreak = true;
+  let breakTimeInSeconds = timeToSecond(set_break.value);
+  clearInterval(timerInterval);
+  timerInterval = setInterval(() => {
+    if (breakTimeInSeconds > 1) {
+      set_time.value = "00:00:30";
+      breakTimeInSeconds--;
+      set_break.value = secondsToTime(breakTimeInSeconds); // Update break display
+    } else {
+      clearInterval(timerInterval);
+     // Reset for next cycle
+      //isInBreak = false;
+      startTimer(); // Start the next cycle
+    }
+  }, 1000);
+}
 
 /* RESET all timer values and clear running timers */
 reset.onclick = () => {
@@ -108,8 +110,8 @@ reset.onclick = () => {
   alarmSound.pause();
 
   // Reset the displayed times and messages
-  set_time.value = "00:01:00";
-  set_break.value = "00:01:00";
+  set_time.value = "00:00:30";
+  set_break.value = "00:00:30";
   information.innerHTML = "";
   info.innerHTML = "";
   done.innerHTML = "";
@@ -128,8 +130,8 @@ pause.onclick = () => {
     clearTimeout(timeoutId); // Stop the transition timeout
     isPaused = true;
 
-    remainingTimeout =
-      timeToMilliseconds(set_time.value) - remainingTime * 1000; // Store remaining time
+    remainingTimeout =timeToMilliseconds(set_time.value) - remainingTime * 1000; // Store remaining time
+    breakTimeInSeconds=timeToMilliseconds(set_break.value) -breakTimeInSeconds*1000;
   }
 };
 
@@ -189,9 +191,9 @@ go.onclick = () => {
     } else {
       info.innerHTML = "";
       again.innerHTML ="";
+      playAlarm(); // Notify when all cycles are done
       done.innerHTML = "All cycles completed!";
       logger(logs, "All cycles completed!");
-      playAlarm(); // Notify when all cycles are done
     }
   };
 
@@ -203,7 +205,7 @@ go.onclick = () => {
     logger(logs, "Break Time!");
     playAlarm(); // Notify that the break is starting
     timeoutId = setTimeout(() => {
-      set_time.value = "00:00:05"; // Reset the work timer
+      set_time.value = "00:00:30"; // Reset the work timer
       again.innerHTML = "Break over! Get ready for the next cycle.";
       startTimer(); // Start the next work cycle
     }, timeToMilliseconds(set_break.value));
@@ -211,6 +213,27 @@ go.onclick = () => {
 
   startTimer(); // Start the first cycle
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // function clickHandler(obj) {
 //   console.log("clicHandler", obj);
