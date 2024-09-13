@@ -74,7 +74,6 @@ function updateCountdown(timeInSeconds) {
   clearInterval(timerInterval);
   timerInterval = setInterval(() => {
     if (remainingTime >1) {
-      set_break.value = "00:00:30"
       remainingTime--;
       set_time.value = secondsToTime(remainingTime); // Update timer display
     } else {
@@ -91,7 +90,6 @@ function startBreakCountdown() {
   clearInterval(timerInterval);
   timerInterval = setInterval(() => {
     if (breakTimeInSeconds > 1) {
-      set_time.value = "00:00:30";
       breakTimeInSeconds--;
       set_break.value = secondsToTime(breakTimeInSeconds); // Update break display
     } else {
@@ -213,4 +211,5 @@ go.onclick = () => {
 
   startTimer(); // Start the first cycle
 };
+
 
