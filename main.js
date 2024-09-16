@@ -1,9 +1,9 @@
 // Set initial values for work and break sessions
 let set_time = document.getElementById("settime");
-set_time.value = "00:00:30"; // Default timer value
+set_time.value = "00:25:00"; // Default timer value
 
 let set_break = document.getElementById("setbreak");
-set_break.value = "00:00:30"; // Default break value
+set_break.value = "00:25:00"; // Default break value
 
 // Convert time from HH:MM:SS format to milliseconds
 const timeToMilliseconds = (time) => {
@@ -108,8 +108,8 @@ reset.onclick = () => {
   alarmSound.pause();
 
   // Reset the displayed times and messages
-  set_time.value = "00:00:30";
-  set_break.value = "00:00:30";
+  set_time.value = "00:25:00";
+  set_break.value = "00:25:00";
   information.innerHTML = "";
   info.innerHTML = "";
   done.innerHTML = "";
@@ -203,7 +203,7 @@ go.onclick = () => {
     logger(logs, "Break Time!");
     playAlarm(); // Notify that the break is starting
     timeoutId = setTimeout(() => {
-      set_time.value = "00:00:30"; // Reset the work timer
+      set_time.value = "00:25:00"; // Reset the work timer
       again.innerHTML = "Break over! Get ready for the next cycle.";
       startTimer(); // Start the next work cycle
     }, timeToMilliseconds(set_break.value));
