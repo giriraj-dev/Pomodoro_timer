@@ -145,8 +145,19 @@ button.add {
     margin-top: 20px;
 }
 
-.btn button {
-    margin: 0 10px;
+/* Container for the button groups */
+.btn-group {
+display: flex;
+justify-content: center;
+gap: 20px; /* Spacing between button groups */
+margin: 20px 0;
+}
+
+/* Flex container for individual buttons */
+.btn {
+display: flex;
+justify-content: center;
+gap: 10px; /* Spacing between buttons */
 }
 
 .message,
