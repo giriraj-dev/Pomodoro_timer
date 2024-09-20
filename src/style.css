@@ -131,7 +131,7 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: red;
 }
 
 button.minus,
@@ -141,17 +141,44 @@ button.add {
     height: 40px;
 }
 
-.btn {
-    margin-top: 20px;
+
+
+.records {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;     /* Centers vertically */
+    margin: 20px 0;
 }
 
-/* Container for the button groups */
-.btn-group {
-display: flex;
-justify-content: center;
-gap: 20px; /* Spacing between button groups */
-margin: 20px 0;
+a {
+    font-family: "Nerko One", cursive;
+    text-decoration: none;
+    color:#fff;
+    background-color: #333333;
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
 }
+
+a:hover{
+    background-color: red;
+}
+
+/* a{
+    border-radius: 5px;
+    font-family: "Nerko One", cursive;
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Spacing between button groups 
+    margin: 1rem 17rem;
+    background-color:#333333;
+    color: white;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+ ccc
+} */
 
 /* Flex container for individual buttons */
 .btn {
@@ -160,10 +187,14 @@ justify-content: center;
 gap: 10px; /* Spacing between buttons */
 }
 
+
 .message,
 .breakMess,
-.repeat,
-.done {
+.repeatMess,
+.done,
+.pause,
+.save
+{
     font-family: "Nerko One", cursive;
     text-align: center;
     margin-top: 20px;
@@ -174,6 +205,7 @@ gap: 10px; /* Spacing between buttons */
 audio {
     display: none;
 }
+
 
 @media screen and (min-width: 1100px) {
     .discription,
