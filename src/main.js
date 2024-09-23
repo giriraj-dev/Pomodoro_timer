@@ -8,7 +8,7 @@ set_break.value = "00:00:10"; // Default break value
 // Get references to DOM elements
 let reset = document.getElementsByClassName("refresh")[0];
 let start = document.getElementsByClassName("start")[0];
-let information = document.getElementsByClassName("message")[0];
+let information = document.getElementsByClassName("text")[0];
 let info = document.getElementsByClassName("breakMess")[0];
 let pause = document.getElementsByClassName("wait")[0];
 let done = document.getElementsByClassName("done")[0];
@@ -109,7 +109,7 @@ function run() {
     again.innerHTML = "";
     completedPomodoros++;
     if (completedPomodoros % 4 == 0) { // Longer break after every four Pomodoros
-      alarmSound.play();
+      playAlarm();
       information.innerHTML="";
       info.innerHTML = "Long Break Time! Enjoy your rest!";
       set_time.value = "00:00:05";
@@ -127,6 +127,7 @@ function run() {
               timeoutId = setTimeout(() => {
                   set_break.value = "00:00:10"; // Reset the work timer
                   startTimer(); // Start the next work cycle
+                  playAlarm();
               },timeToMilliseconds(set_break.value)); // Regular break duration
     }
     logger(

@@ -1,3 +1,8 @@
+// let goBack= document.getElementsByClassName("goBack")[0];
 
-  printLog("logger");
 
+// printLog("logger");
+
+// goBack.onclick=()=>{
+//   history.back();
+//   }
