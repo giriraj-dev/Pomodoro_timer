@@ -49,8 +49,7 @@ const resume = () => {
     updateCountdown(remainingTimeout); // Continue from the remaining time
   }
 };
-
-/*Fuction to update countdown for the work session */
+/* Function to update countdown for the work session */
 function updateCountdown(timeInSeconds) {
   remainingTime = timeInSeconds;
   clearInterval(timerInterval);
@@ -67,77 +66,100 @@ function updateCountdown(timeInSeconds) {
 
 /* Function to update countdown for the break session */
 function startBreakCountdown() {
-  //isInBreak = true;
   let breakTimeInSeconds = timeToSecond(set_break.value);
   clearInterval(timerInterval);
   timerInterval = setInterval(() => {
-    if (breakTimeInSeconds > 1 && completedPomodoros % 4 !== 0) {
+    if (breakTimeInSeconds > 1) {
       breakTimeInSeconds--;
       set_break.value = secondsToTime(breakTimeInSeconds); // Update break display
     } else {
       clearInterval(timerInterval);
       // Reset for next cycle
-      //isInBreak = false;
-      startTimer(); // Start the next cycle
+      startTimer(); // Start the next work session
     }
   }, 1000);
 }
 
+/* Start the long break session */
+function startLongBreakCountdown() {
+  let longBreakTimeInSeconds = timeToSecond(set_break.value); // Longer break duration
+  clearInterval(timerInterval);
+  timerInterval = setInterval(() => {
+    if (longBreakTimeInSeconds > 1) {
+      longBreakTimeInSeconds--;
+      set_break.value = secondsToTime(longBreakTimeInSeconds); // Update long break display
+    } else {
+      clearInterval(timerInterval);
+      // Reset for next cycle after long break
+      startTimer(); // Start the next work session
+    }
+  }, 1000);
+}
 
 // Modify the run function
 function run() {
   const startTimer = () => {
     info.innerHTML = "";
-    information.innerHTML = ("TIMER STARTED!! " + "Round:- &nbsp " + (completedPomodoros+1)) ;
+    information.innerHTML = "TIMER STARTED!! Round:- " + (completedPomodoros + 1);
     logger(logs, "Timer started");
     alarmSound.pause();
+    
     if (isPaused) {
       isPaused = false; // Resume the timer from where it was paused
       updateCountdown(remainingTime); // Resume countdown
-    } 
-    else {
-      const initialTimeInSeconds = timeToSecond(set_time.value);// Start a fresh timer cycle
+    } else {
+      const initialTimeInSeconds = timeToSecond(set_time.value); // Start a fresh timer cycle
       updateCountdown(initialTimeInSeconds);
     }
-      timeoutId = setTimeout(() => { // Set timeout for transitioning to break after work session
+    
+    timeoutId = setTimeout(() => { // Set timeout for transitioning to break after work session
       startBreak(); // Start break after work session
-    },timeToMilliseconds(set_time.value));
+    }, timeToMilliseconds(set_time.value));
   };
 
   /* Start the break session */
   const startBreak = () => {
     again.innerHTML = "";
     completedPomodoros++;
-    if (completedPomodoros % 4 == 0) { // Longer break after every four Pomodoros
+    
+    if (completedPomodoros % 2 === 0) { // Every 2nd Pomodoro, start a long break
       playAlarm();
-      information.innerHTML="";
+      information.innerHTML = "";
       info.innerHTML = "Long Break Time! Enjoy your rest!";
-      set_time.value = "00:00:05";
-      set_break.value = "00:00:10";
-              timeoutId = setTimeout(() => {
-                  again.innerHTML ="Long break over! Get ready for the next work session.";
-                  startTimer(); // Start the next work cycle
-              },timeToMilliseconds("00:01:00")); // Set long break duration (15 minutes)
-    } 
-    else {
-      playAlarm(); // Notify that the break is starting
-      set_time.value = "00:00:05";
+      
+      // Set long break time, you can adjust this to any desired long break duration
+      set_break.value = "00:15:00"; // Example long break duration: 15 minutes
+      
+      const longBreakInSeconds = timeToSecond(set_break.value);
+      startLongBreakCountdown(); // Start long break countdown
+      
+      timeoutId = setTimeout(() => {
+        again.innerHTML = "Long break over! Get ready for the next work session.";
+        startTimer(); // Start the next work cycle
+      }, timeToMilliseconds(set_break.value)); // Long break duration (15 minutes)
+
+    } else {
+      playAlarm(); // Notify that the regular break is starting
+      set_time.value = "00:00:05"; // Reset the work timer for next work session
       info.innerHTML = "Break Time!";
-      information.innerHTML ="";
-              timeoutId = setTimeout(() => {
-                  set_break.value = "00:00:10"; // Reset the work timer
-                  startTimer(); // Start the next work cycle
-                  playAlarm();
-              },timeToMilliseconds(set_break.value)); // Regular break duration
+      information.innerHTML = "";
+
+      timeoutId = setTimeout(() => {
+        set_break.value = "00:05:00"; // Regular break duration
+        startTimer(); // Start the next work cycle
+        playAlarm();
+      }, timeToMilliseconds(set_break.value)); // Regular break duration (5 minutes)
     }
+
     logger(
       logs,
-      completedPomodoros % 4 === 0 ? "Long Break Time!" : "Break Time!"
+      completedPomodoros % 2 === 0 ? "Long Break Time!" : "Break Time!"
     );
   };
 
   startTimer(); // Start the first cycle
 }
+
 
 /*All ONCLICK EVENTs*/
 
