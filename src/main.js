@@ -27,6 +27,9 @@ let timeoutId, timerInterval;
 let remainingTime, remainingTimeout;
 isPaused = false;
 let completedPomodoros = 0; // Track completed Pomodoros
+isBreak=false;
+// Update display
+
 
 const stop = () => {
   if (!isPaused) {
@@ -37,7 +40,7 @@ const stop = () => {
     info.innerHTML="";
     information.innerHTML="";
     logger(logs, "you paused");
-    remainingTimeout = remainingTime;
+    // remainingTimeout = remainingTime;
   }
 };
 
@@ -46,9 +49,11 @@ const resume = () => {
     if (isPaused) {
     isPaused = false;
     logger(logs, "you resumed");
-    updateCountdown(remainingTimeout); // Continue from the remaining time
+    updateCountdown(remainingTime); // Continue from the remaining time
   }
 };
+
+
 /* Function to update countdown for the work session */
 function updateCountdown(timeInSeconds) {
   remainingTime = timeInSeconds;

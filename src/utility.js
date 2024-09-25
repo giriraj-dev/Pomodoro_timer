@@ -56,6 +56,7 @@ const logger = (logs, message) => {
     logs.push(message);
     let store = document.getElementsByClassName("save")[0];
     store.innerHTML = "";
+
     logs.forEach((log, index) => {
         let div = document.createElement("div");
         div.innerHTML = log;
@@ -108,24 +109,24 @@ const logger = (logs, message) => {
 
 
 
-// // Get the button
-// let mybutton = document.getElementById("myBtn");
+// Get the button
+let mybutton = document.getElementById("myBtn");
 
-// // When the user scrolls down 20px from the top of the document, show the button
-// window.onscroll = function() {scrollFunction()};
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
 
-// function scrollFunction() {
-//   if ( document.documentElement.scrollTop > 100) {
-//     mybutton.style.display = "block";
-//   } else {
-//     mybutton.style.display = "none";
-//   }
-// }
+function scrollFunction() {
+  if ( document.documentElement.scrollTop > 100) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
 
-// // When the user clicks on the button, scroll to the top of the document
-// function topFunction() {
-//   document.documentElement.scrollTop = 0;
-// }
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.documentElement.scrollTop = 0;
+}
 // const logger = (logs, message) =>{
 //     logs.push(`${new Date()}---${message}`);
 //     let store = document.getElementsByClassName("save")[0];
