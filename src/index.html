@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomodoro Timer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="discription">
+      <h1><span class="head">Pomodoro</span> Timer</h1>
+
+      <p>
+        This Pomodoro Timer helps you focus on tasks by dividing your time
+        into work intervals and short breaks. Here's how to use the timer:
+      </p>
+      <ul>
+        <li>
+          The time format is displayed as HH:MM:SS (Hours:Minutes:Seconds).
+        </li>
+        <li>
+          Use the <span>+</span> and <span>-</span> buttons to adjust the
+          session or break duration.
+        </li>
+        <li>
+          Press the <span>Start </span>button to begin the countdown for your
+          work session.
+        </li>
+        <li>
+          Press the <span>Stop</span> button if you need to pause the timer.
+          You can resume it by pressing Start again.
+        </li>
+        <li>
+          Press the <span>Reset</span> button to reset the timer back to the
+          original set time (00:25:00 for session & 00:05:00 for break).
+        </li>
+        <li>
+          Long break after <span>4</span> cycle.
+        </li>
+      </ul>
+    </div>
+
+    <section class="time">
+  <div id="timer">
+    <div class="time-inputs">
+      <div class="heading-1">SET TIMER :-</div>
+      <button id="decrement-work">-</button>
+      <input type="time" id="settime" step="1" value="00:25:00">
+      <button id="increment-work">+</button>
+      <div class="heading-2">SET BREAK :-</div>
+      <button id="decrement-break">-</button>
+      <input type="time" id="setbreak" step="1" value="00:05:00">
+      <button id="increment-break">+</button>
+    </div>
+
+<br>
+      <div class="btn">
+      <div class="btn">
+      <button class="start">Start</button>
+      <button class="wait" disabled>Pause</button>
+      </div>
+      <div class="btn">
+      <button class="resume" disabled>Resume</button>
+      <button class="reset">Reset</button>
+      </div>
+      </div>
+    </div>
+    </section>
+    </div>
+    
+    <section class="footer">
+      <div>
+
+        <div id="session-info"></div>
+
+        <p><span>RECORDs:-</span></p>
+          <div class="save"></div>
+        <button id="seeMore" style="display:none;">See More</button>
+        <button id="goTop" style="display:none;">Go on Top</button>
+
+          <p>
+            Enjoy productive work sessions by focusing during your work
+            intervals and relaxing during your breaks!
+          </p>
+    <audio id="alarm" src="./homepod_timer.mp3"></audio>
+  </div>
+</section>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
