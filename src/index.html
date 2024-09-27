@@ -33,7 +33,10 @@
         </li>
         <li>
           Press the <span>Reset</span> button to reset the timer back to the
-          original set time (00:25:00 for session & 00:05:00 for break)
+          original set time (00:25:00 for session & 00:05:00 for break).
+        </li>
+        <li>
+          Long break after <span>4</span> cycle.
         </li>
       </ul>
     </div>
@@ -43,11 +46,11 @@
     <div class="time-inputs">
       <div class="heading-1">SET TIMER :-</div>
       <button id="decrement-work">-</button>
-      <input type="time" id="settime" step="1" value="00:00:05">
+      <input type="time" id="settime" step="1" value="00:25:00">
       <button id="increment-work">+</button>
       <div class="heading-2">SET BREAK :-</div>
       <button id="decrement-break">-</button>
-      <input type="time" id="setbreak" step="1" value="00:00:10">
+      <input type="time" id="setbreak" step="1" value="00:05:00">
       <button id="increment-break">+</button>
     </div>
 
@@ -71,7 +74,7 @@
 
         <div id="session-info"></div>
 
-        
+        <p><span>RECORDs:-</span></p>
           <div class="save"></div>
         <button id="seeMore" style="display:none;">See More</button>
         <button id="goTop" style="display:none;">Go on Top</button>

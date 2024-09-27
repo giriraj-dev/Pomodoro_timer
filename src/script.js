@@ -13,14 +13,9 @@ const incrementWorkBtn = document.getElementById('increment-work');
 const decrementWorkBtn = document.getElementById('decrement-work');
 const incrementBreakBtn = document.getElementById('increment-break');
 const decrementBreakBtn = document.getElementById('decrement-break');
-
-let information = document.getElementsByClassName("text")[0];
-let info = document.getElementsByClassName("breakMess")[0];
-let done = document.getElementsByClassName("done")[0];
-let again = document.getElementsByClassName("repeat")[0];
-let wait = document.getElementsByClassName("pause")[0];
 let store = document.getElementsByClassName("save")[0];
 
+// global variables are initialized to store values like timers, log messages, and completed Pomodoro counts
 let timerInterval, timeoutId;
 let remainingTime, remainingTimeout;
 let isPaused = false;
@@ -29,7 +24,6 @@ let completedTimers=0;
 
 // Sample logs array
 let logs = [];
-
 
 // Store the initial values
 let initialWorkTime, initialBreakTime;
@@ -47,12 +41,14 @@ const secondsToTime = (totalSeconds) => {
   return `${hours}:${minutes}:${seconds}`;
 };
 
+//Alarm function (Plays an alarm sound for 5 seconds when a session ends)
 const playAlarm=()=>{
     alarm.play();
     setTimeout(()=>{
       alarm.pause();
-    },5000);
+    },10000);
 }
+
 // Update the input field directly with the remaining time
 const updateTimeInput = (inputElement, timeInSeconds) => {
   inputElement.value = secondsToTime(timeInSeconds);
@@ -90,7 +86,7 @@ const resetTimers = () => {
   setBreak.value = secondsToTime(initialBreakTime);
 };
 
-// Start work session
+// Start work session countdown
 const startWorkCountdown = () => {
   const workTimeInSeconds = initialWorkTime;
   sessionInfo.textContent = `Work Session ${Math.floor(completedPomodoros / 2) + 1}`;
@@ -99,16 +95,20 @@ const startWorkCountdown = () => {
   logger(logs, "Timer started");
 };
 
-// Start break session
+// Start break session countdown
 const startBreakCountdown = () => {
+  playAlarm();
   const breakTimeInSeconds = initialBreakTime;
   sessionInfo.textContent = "Break Time!";
-  playAlarm();
+  setTimeout(() => {
+    playAlarm();
+    sessionInfo.textContent = "Work session starting in 5 seconds!";
+  }, (breakTimeInSeconds - 5) * 1000); // Alert 5 seconds before break ends
   startCountdown(breakTimeInSeconds, true);
   logger(logs, "Break Time");
 };
 
-// Start long break session
+// Start long break session countdown
 const startLongBreakCountdown = () => {
   sessionInfo.textContent = "Long Break Time! Enjoy!";
   logger(logs, "Long break time");
@@ -122,7 +122,6 @@ startBtn.addEventListener('click', () => {
   // Capture initial values only when the start button is pressed for the first time
   initialWorkTime = timeToSeconds(setTime.value);
   initialBreakTime = timeToSeconds(setBreak.value);
-
   startWorkCountdown();
   startBtn.disabled = true;
   pauseBtn.disabled = false;
@@ -177,12 +176,12 @@ const decrementTime = (inputField, minutesToSubtract) => {
 
 
 // Add event listeners to increment/decrement work time by 5 minutes
-incrementWorkBtn.addEventListener('click', () => incrementTime(setTime,1)); // Add1 minutes to work timer
-decrementWorkBtn.addEventListener('click', () => decrementTime(setTime,1)); // Subtract1 minutes from work timer
+incrementWorkBtn.addEventListener('click', () => incrementTime(setTime,5)); // Add1 minutes to work timer
+decrementWorkBtn.addEventListener('click', () => decrementTime(setTime,5)); // Subtract1 minutes from work timer
 
 // Add event listeners to increment/decrement break time by1 minutes
-incrementBreakBtn.addEventListener('click', () => incrementTime(setBreak,1)); // Add1 minutes to break timer
-decrementBreakBtn.addEventListener('click', () => decrementTime(setBreak,1)); // Subtract1 minutes from break timer
+incrementBreakBtn.addEventListener('click', () => incrementTime(setBreak,5)); // Add1 minutes to break timer
+decrementBreakBtn.addEventListener('click', () => decrementTime(setBreak,5)); // Subtract1 minutes from break timer
 
 
 // Logger function to display logs with only 2 messages visible at first
