@@ -46,7 +46,7 @@ const playAlarm=()=>{
     alarm.play();
     setTimeout(()=>{
       alarm.pause();
-    },10000);
+    },5000);
 }
 
 // Update the input field directly with the remaining time
