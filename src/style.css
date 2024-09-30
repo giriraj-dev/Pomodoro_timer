@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Nerko+One&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Mingzat&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Mingzat&display=swap");
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
 h1,
@@ -13,21 +13,21 @@ h3,
 h4,
 h5,
 h6 {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 .parent-container {
-    min-height: 100vh;
-    padding: 2rem;
+  min-height: 100vh;
+  padding: 2rem;
 }
 
 .discription {
-    /* padding: 2rem; */
-    margin-bottom: 2rem;
+  /* padding: 2rem; */
+  margin-bottom: 2rem;
 }
 
 body {
-    background-color: #f1f0f0;
+  background-color: #f1f0f0;
 }
 
 /* .footer-sub-container {
@@ -35,134 +35,139 @@ body {
 } */
 
 ul {
-    margin-top: 15px;
-    padding-left: 40px;
+  margin-top: 15px;
+  padding-left: 40px;
 }
 
 p,
 ul li {
-    font-family: "Dosis", sans-serif;
-    font-size: larger;
-    font-style: normal;
+  font-family: "Dosis", sans-serif;
+  font-size: larger;
+  font-style: normal;
 }
 
 p {
-    padding-left: 40px;
+  padding-left: 40px;
 }
 
 span {
-    font-family: "Nerko One", cursive;
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 h1 {
-    font-family: "Nerko One", cursive;
-    font-size: 4rem;
-    text-align: center;
+  font-family: "Nerko One", cursive;
+  font-size: 4rem;
+  text-align: center;
 }
 
 .head {
-    color: red;
+  color: red;
 }
 
-.save div{
-    font-family: "Mingzat", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+.save div {
+  font-family: "Mingzat", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .time {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #timer {
-    background-color: #333333;
-    border-radius: 10px;
-    box-shadow: 10px 10px 19px rgba(161, 85, 85, 0.4);
-    padding: 20px;
-    max-width: 400px;
-    width: 100%;
-    text-align: center;
+  background-color: #333333;
+  border-radius: 10px;
+  box-shadow: 4px 3px 5px 0px rgb(105 105 105);
+  padding: 20px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+#timer:hover {
+  box-shadow: 4px 6px 16px 2px rgb(105 105 105);
 }
 
 .heading-1 {
-    font-family: "Nerko One", cursive;
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    font-weight: lighter;
-    border-top: rgb(36, 32, 32) solid 1px;
-    border-bottom: rgb(36, 32, 32) solid 1px;
-    color: #fff;
+  font-family: "Nerko One", cursive;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  font-weight: lighter;
+  border-top: rgb(36, 32, 32) solid 1px;
+  border-bottom: rgb(36, 32, 32) solid 1px;
+  color: #fff;
 }
 
 .heading-2 {
-    font-family: "Nerko One", cursive;
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    border-top: rgb(36, 32, 32) solid 1px;
-    border-bottom: rgb(36, 32, 32) solid 1px;
-    font-weight: lighter;
-    color: #fff;
+  font-family: "Nerko One", cursive;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border-top: rgb(36, 32, 32) solid 1px;
+  border-bottom: rgb(36, 32, 32) solid 1px;
+  font-weight: lighter;
+  color: #fff;
 }
 
 input[type="time"] {
-    font-size: 1.2em;
-    padding: 5px;
-    margin: 0 20px;
-    width: 140px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    text-align: center;
+  font-size: 1.2em;
+  padding: 5px;
+  margin: 0 20px;
+  width: 140px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
 }
 
 button {
-    font-family: "Nerko One", cursive;
-    background-color: #302f2f;
-    border: rgb(36, 32, 32) solid 1px;
-    color: white;
-    border-radius: 5px;
-    padding: 10px 15px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  font-family: "Nerko One", cursive;
+  background-color: #1c1c1c;
+  /* border: rgb(36, 32, 32) solid 1px; */
+  border-style: none;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 1px 4px 4px #1c1c1c;
 }
 
 button:hover {
-    background-color: red;
+  background-color: red;
 }
 
 button.minus,
 button.add {
-    font-size: 1.2em;
-    width: 40px;
-    height: 40px;
+  font-size: 1.2em;
+  width: 40px;
+  height: 40px;
 }
 
-
-
 .records {
-    display: flex;
-    justify-content: center; /* Centers horizontally */
-    align-items: center;     /* Centers vertically */
-    margin: 20px 0;
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  margin: 20px 0;
 }
 
 a {
-    font-family: "Nerko One", cursive;
-    text-decoration: none;
-    color:#fff;
-    background-color: #333333;
-    padding: 10px 15px;
-    font-size: 1.5rem;
-    transition: background-color 0.3s ease;
-    border-radius: 5px;
+  font-family: "Nerko One", cursive;
+  text-decoration: none;
+  color: #fff;
+  background-color: #333333;
+  padding: 10px 15px;
+  font-size: 1.5rem;
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
 }
 
-a:hover{
-    background-color: red;
+a:hover {
+  background-color: red;
 }
 
 /* a{
@@ -182,75 +187,77 @@ a:hover{
 
 /* Flex container for individual buttons */
 .btn {
-display: flex;
-justify-content: center;
-gap: 10px; /* Spacing between buttons */
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Spacing between buttons */
 }
 
-
-#session-info
-{
-    font-family: "Nerko One", cursive;
-    text-align: center;
-    margin-top: 20px;
-    font-size: 1.7em;
-    color: black;
+#session-info {
+  font-family: "Nerko One", cursive;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.7em;
+  color: black;
 }
-.save{
+.save {
+  text-align: center;
+}
+
+audio {
+  display: none;
+}
+
+#record {
+  display: none;
+}
+
+#history {
+  color: blue;
+  font-size: 14px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.message {
+  display: none;
+}
+.visible {
+  display: block;
+}
+@media screen and (min-width: 1100px) {
+  .discription,
+  p {
     text-align: center;
   }
 
-audio {
-    display: none;
-}
-
-#record{
-    display: none;
-}
-
-#history{
-  color :blue; 
-  font-Size :14px; 
-  border-Top :1px solid black;
-  border-Bottom :1px solid black;
-  padding :5px; 
-  margin-Bottom :5px;
-}
-
-
-.message {
-    display: none;
-}
-.visible {
-    display: block;
-}
-@media screen and (min-width: 1100px) {
-    .discription,
-    p {
-    text-align: center;
-    }
-
-    ul {
+  ul {
     display: inline-block;
     text-align: left;
-    }
+  }
 }
 
 /* Center the save and timer sections vertically on large screens */
 @media screen and (min-width: 800px) {
-.container {
+  .container {
     align-items: center;
-}
+  }
 }
 
 @media screen and (max-width: 600px) {
   .container {
-      flex-direction: column; /* Stack the sections vertically on small screens */
-      align-items: center;
+    flex-direction: column; /* Stack the sections vertically on small screens */
+    align-items: center;
   }
 
-  .save, .time {
-      text-align: center;
-      width: 100%; /* Take full width on small screens */
+  .save,
+  .time {
+    text-align: center;
+    width: 100%; /* Take full width on small screens */
   }
+}
+
+button:disabled {
+  background-color: #656565;
 }

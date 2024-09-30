@@ -126,6 +126,10 @@ startBtn.addEventListener('click', () => {
   startBtn.disabled = true;
   pauseBtn.disabled = false;
   resumeBtn.disabled = true;
+  incrementWorkBtn.disabled = true;
+  decrementWorkBtn.disabled = true;
+  incrementBreakBtn.disabled = true;
+  decrementBreakBtn.disabled = true;
 });
 
 // Pause button
@@ -159,6 +163,10 @@ resetBtn.addEventListener('click', () => {
   startBtn.disabled = false;
   pauseBtn.disabled = true;
   resumeBtn.disabled = true;
+  incrementWorkBtn.disabled = false;
+  decrementWorkBtn.disabled = false;
+  incrementBreakBtn.disabled = false;
+  decrementBreakBtn.disabled = false;
   alert("RESET ALL TIMERS");
 });
 
